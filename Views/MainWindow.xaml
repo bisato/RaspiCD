@@ -11,29 +11,35 @@
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-<Grid RowDefinitions="6*,3*,1*" ColumnDefinitions="9*,1*"  Margin="4">
-  <ListBox Items="{Binding Tracks, Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0">
-    <ListBox.ItemTemplate>
-        <DataTemplate>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding No, Mode=OneWay}" Margin="5"/>
-                <TextBlock Text="{Binding ArtistName, Mode=OneWay}" Margin="5"/>
-                <TextBlock Text="{Binding TrackName, Mode=OneWay}" Margin="5"/>
-            </StackPanel>
-        </DataTemplate>
-    </ListBox.ItemTemplate>
+<Grid RowDefinitions="6*,3*,1*" ColumnDefinitions="9*,1*"  Margin="4" ShowGridLines="True">
+  <Border Classes="Card" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+    <ListBox Items="{Binding Tracks, Mode=OneWay}" >
+      <ListBox.ItemTemplate>
+          <DataTemplate>
+              <StackPanel Orientation="Horizontal">
+                  <TextBlock Text="{Binding No, Mode=OneWay}" Margin="5"/>
+                  <TextBlock Text="{Binding ArtistName, Mode=OneWay}" Margin="5"/>
+                  <TextBlock Text="{Binding TrackName, Mode=OneWay}" Margin="5"/>
+              </StackPanel>
+          </DataTemplate>
+      </ListBox.ItemTemplate>
   </ListBox>
-  <Slider Name="VolumeSlider" Value="50" Minimum="0" Maximum="100" Orientation="Vertical" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-  <StackPanel Grid.Row="1" Grid.Column="0">
-    <TextBlock Text="{Binding ActualTrack, Mode=OneWay}" Margin="5"/>
-    <TextBlock Text="{Binding ActualTime, Mode=OneWay}" Margin="5"/>
-    <Slider Name="ProgressSlider" Value="0" Minimum="0" Maximum="100" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-  </StackPanel>
-  <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
-    <Button Name="Back" Command="{Binding Back}">Back></Button>
-    <Button Name="Play" Command="{Binding Play_Pause}">Play/Pause</Button>
-    <Button Name="Forward" Command="{Binding Forward}">Forward</Button>
-  </StackPanel>
+  </Border>
+  <Slider Name="VolumeSlider" Orientation="Vertical" Value="50" Minimum="0" Maximum="100" Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+  <Border Classes="Card" Grid.Row="1" Grid.Column="0">
+    <StackPanel Orientation="Vertical">
+      <TextBlock Text="{Binding ActualTrack, Mode=OneWay}" Margin="5"/>
+      <TextBlock Text="{Binding ActualTime, Mode=OneWay}" Margin="5"/>
+      <Slider Name="ProgressSlider" Value="0" Minimum="0" Maximum="100" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+    </StackPanel>
+  </Border>
+  <Border Classes="Card" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" >
+    <StackPanel Orientation="Horizontal">
+      <Button Name="Back" Command="{Binding Back}">Back></Button>
+      <Button Name="Play" Command="{Binding Play_Pause}">Play/Pause</Button>
+      <Button Name="Forward" Command="{Binding Forward}">Forward</Button>
+    </StackPanel>
+  </Border>
 </Grid>
     
 

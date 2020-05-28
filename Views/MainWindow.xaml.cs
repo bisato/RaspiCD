@@ -14,6 +14,8 @@ namespace UI.Views
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
+            this.HasSystemDecorations = false;
+            this.WindowState = WindowState.Maximized;
         }
     }
 }
